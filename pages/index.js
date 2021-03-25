@@ -1,14 +1,10 @@
-import Head from 'next/head';
+import Layout from '@components/layout';
 
 function Index() {
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout title="Home">
       <h1>Index</h1>
-    </div>
+    </Layout>
   );
 }
 

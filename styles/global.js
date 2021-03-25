@@ -29,6 +29,16 @@ const GlobalStyles = createGlobalStyle`
       --font-lg: 1.5rem;
       --font-xl: 2rem;
       --font-2xl: 2.5rem;
+
+      /* Spacing */
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 2.5rem;
+      --space-xl: 5rem;
+      --space-body: 64rem;
+
+      /* Radius variants */
+      --radius-sm: 3px;
     }
 
     [data-theme='dark'] {
