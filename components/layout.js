@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DialogProvider } from '@context/mobile-dialog-toggle';
 import Header from './header';
 import Footer from './footer';
 import SEO from './seo';
@@ -6,7 +7,7 @@ import SEO from './seo';
 const Wrapper = styled.div`
   max-width: var(--space-body);
   margin: 0 auto;
-  padding: 0 var(--space-sm);
+  padding: 0 var(--space-md);
 `;
 
 const MainWrapper = styled.main`
@@ -18,7 +19,9 @@ function Layout({ children, title }) {
   return (
     <Wrapper>
       <SEO title={title} />
-      <Header />
+      <DialogProvider>
+        <Header />
+      </DialogProvider>
       <MainWrapper>{children}</MainWrapper>
       <Footer />
     </Wrapper>

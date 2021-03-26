@@ -17,6 +17,8 @@ const GlobalStyles = createGlobalStyle`
       /* Light theme colors */
       --color-bg: #ffffff;
       --color-fg: #000000;
+      --color-outline: #1b79c5;
+      --color-gray-primary: #5c5c5c;
 
       /* Fonts */
       --font-primary: 'Inter', sans-serif;
@@ -45,6 +47,8 @@ const GlobalStyles = createGlobalStyle`
       /* Dark theme colors */
       --color-bg: #292929;
       --color-fg: #ffffff;
+      --color-outline: #3a97e4;
+      --color-gray-primary: #c2c2c2;
     }
 
     * {
@@ -56,6 +60,8 @@ const GlobalStyles = createGlobalStyle`
       padding: 0;
       margin: 0;
       font-family: var(--font-primary);
+      font-weight: var(--font-regular);
+      font-size: var(--font-base);
       background-color: var(--color-bg);
       color: var(--color-fg);
     }
@@ -64,9 +70,42 @@ const GlobalStyles = createGlobalStyle`
       min-height: 100vh;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: var(--font-extrabold);
+    }
+
+    h1 {
+      font-size: var(--font-2xl);
+    }
+
+    h2 {
+      font-size: var(--font-lg);
+    }
+
+    h3 {
+      font-size: var(--font-md);
+    }
+
+    h4,
+    h5,
+    h6 {
+      font-size: var(--font-sm);
+    }
+
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: var(--font-xl);
+      }
     }
   `}
 `;
