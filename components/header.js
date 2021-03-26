@@ -4,7 +4,6 @@ import { useTheme } from 'next-themes';
 import useHasMounted from '@hooks/use-has-mounted';
 import { useDialog } from '@context/mobile-dialog-toggle';
 import Button from './buttons';
-import CustomLink from './custom-link';
 import MobileDialog from './mobile-dialog';
 import { Sun, Moon, Menu } from './icons';
 
@@ -58,7 +57,7 @@ function Header() {
       <div>
         {hasMounted ? (
           <Button
-            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             isIconButton
           >
             {theme === 'light' ? <Moon /> : <Sun />}
@@ -69,19 +68,25 @@ function Header() {
       <NavWrapper>
         <NavList>
           <li>
-            <CustomLink href="/">Home</CustomLink>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
           </li>
           <li>
-            <CustomLink href="/blog">Blog</CustomLink>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
           </li>
           <li>
-            <CustomLink href="/podcast">Podcast</CustomLink>
+            <Link href="/podcast">
+              <a>Podcast</a>
+            </Link>
           </li>
         </NavList>
       </NavWrapper>
 
       <MenuButtonWrapper>
-        <Button type="button" onClick={dialog.open} isIconButton>
+        <Button type="button" onPress={dialog.open} isIconButton>
           <Menu />
         </Button>
       </MenuButtonWrapper>

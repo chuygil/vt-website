@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import { Dialog } from '@reach/dialog';
 import { useDialog } from '@context/mobile-dialog-toggle';
 import Button from './buttons';
-import { MenuClose } from './icons';
+import CustomLink from './custom-link';
+import { MenuClose, Home, Microphone, Pencil } from './icons';
 import '@reach/dialog/styles.css';
 
 const DialogWrapper = styled(Dialog)`
@@ -22,7 +22,24 @@ const DialogWrapper = styled(Dialog)`
 
 const DialogHeading = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+
+  > span {
+    position: relative;
+    font-size: var(--font-md);
+    font-weight: var(--font-semibold);
+
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: var(--color-fg);
+      width: 100%;
+      height: 3px;
+      bottom: -5px;
+      left: 0;
+    }
+  }
 
   > button {
     margin-right: -0.5rem;
@@ -34,14 +51,8 @@ const MobileNavList = styled.ul`
   padding-left: 0;
 
   > li {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
-`;
-
-const MobileLinkWrapper = styled.a`
-  font-size: var(--font-lg);
-  font-weight: var(--font-semibold);
-  padding: var(--space-md) 0;
 `;
 
 function MobileDialog() {
@@ -54,26 +65,29 @@ function MobileDialog() {
       aria-label="Mobile navigation dialog"
     >
       <DialogHeading>
+        <span>No Era Penal</span>
         <Button onPress={dialog.close} isIconButton>
-          <MenuClose width={24} height={24} />
+          <MenuClose />
         </Button>
       </DialogHeading>
       <nav>
         <MobileNavList>
           <li>
-            <Link href="/" passHref>
-              <MobileLinkWrapper>Home</MobileLinkWrapper>
+            <Link href="/">
+              <a>Home</a>
             </Link>
           </li>
           <li>
-            <Link href="/podcast" passHref>
-              <MobileLinkWrapper>Podcast</MobileLinkWrapper>
-            </Link>
+            <CustomLink href="/podcast" isMobileLink>
+              <Microphone />
+              <span>Podcast</span>
+            </CustomLink>
           </li>
           <li>
-            <Link href="/blog" passHref>
-              <MobileLinkWrapper>Blog</MobileLinkWrapper>
-            </Link>
+            <CustomLink href="/blog" isMobileLink>
+              <Pencil />
+              <span>Blog</span>
+            </CustomLink>
           </li>
         </MobileNavList>
       </nav>
