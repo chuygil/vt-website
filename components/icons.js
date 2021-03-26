@@ -1,8 +1,8 @@
-export function Sun() {
+export function Sun({ width = 24, height = 24 }) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={width}
+      height={height}
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -16,11 +16,11 @@ export function Sun() {
   );
 }
 
-export function Moon() {
+export function Moon({ width = 24, height = 24 }) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={width}
+      height={height}
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ export function Moon() {
   );
 }
 
-export function Menu(width = 20, height = 20) {
+export function Menu({ width = 24, height = 24 }) {
   return (
     <svg
       width={width}
@@ -48,7 +48,7 @@ export function Menu(width = 20, height = 20) {
   );
 }
 
-export function MenuClose({ width = 20, height = 20 }) {
+export function MenuClose({ width = 24, height = 24 }) {
   return (
     <svg
       width={width}
@@ -66,48 +66,17 @@ export function MenuClose({ width = 20, height = 20 }) {
   );
 }
 
-export function Home() {
+export function ExternalLink({ width = 20, height = 20 }) {
   return (
     <svg
-      width={20}
-      height={20}
+      width={width}
+      height={height}
       fill="currentColor"
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-    </svg>
-  );
-}
-
-export function Microphone() {
-  return (
-    <svg
-      width={20}
-      height={20}
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fillRule="evenodd"
-        d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
-
-export function Pencil() {
-  return (
-    <svg
-      width={20}
-      height={20}
-      fill="currentColor"
-      viewBox="0 0 20 20"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
     </svg>
   );
 }

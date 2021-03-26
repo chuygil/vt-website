@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { Dialog } from '@reach/dialog';
+import { motion } from 'framer-motion';
 import { useDialog } from '@context/mobile-dialog-toggle';
 import Button from './buttons';
 import { MenuClose } from './icons';
@@ -29,20 +30,41 @@ const DialogHeading = styled.div`
   }
 `;
 
-const MobileNavList = styled.ul`
+const MobileNavList = styled(motion.ul)`
   list-style: none;
   padding-left: 0;
 
   > li {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 `;
 
 const MobileLinkWrapper = styled.a`
+  display: block;
   font-size: var(--font-lg);
   font-weight: var(--font-semibold);
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
 `;
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 
 function MobileDialog() {
   let dialog = useDialog();
@@ -55,26 +77,26 @@ function MobileDialog() {
     >
       <DialogHeading>
         <Button onPress={dialog.close} isIconButton>
-          <MenuClose width={24} height={24} />
+          <MenuClose />
         </Button>
       </DialogHeading>
       <nav>
-        <MobileNavList>
-          <li>
+        <MobileNavList variants={container} initial="hidden" animate="visible">
+          <motion.li variants={item}>
             <Link href="/" passHref>
               <MobileLinkWrapper>Home</MobileLinkWrapper>
             </Link>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={item}>
             <Link href="/podcast" passHref>
               <MobileLinkWrapper>Podcast</MobileLinkWrapper>
             </Link>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li variants={item}>
             <Link href="/blog" passHref>
               <MobileLinkWrapper>Blog</MobileLinkWrapper>
             </Link>
-          </li>
+          </motion.li>
         </MobileNavList>
       </nav>
     </DialogWrapper>
