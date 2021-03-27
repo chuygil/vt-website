@@ -88,13 +88,13 @@ function MobileDialog() {
             </Link>
           </motion.li>
           <motion.li variants={item}>
-            <Link href="/podcast" passHref>
-              <MobileLinkWrapper>Podcast</MobileLinkWrapper>
+            <Link href="/blog" passHref>
+              <MobileLinkWrapper>Blog</MobileLinkWrapper>
             </Link>
           </motion.li>
           <motion.li variants={item}>
-            <Link href="/blog" passHref>
-              <MobileLinkWrapper>Blog</MobileLinkWrapper>
+            <Link href="/podcast" passHref>
+              <MobileLinkWrapper>Podcast</MobileLinkWrapper>
             </Link>
           </motion.li>
         </MobileNavList>

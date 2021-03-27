@@ -28,7 +28,7 @@ const Divider = styled.div`
     content: '';
     background-color: var(--color-fg);
     width: 10%;
-    height: 3px;
+    height: 1px;
     top: 0;
     left: 0;
   }
