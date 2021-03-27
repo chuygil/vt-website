@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
 const SectionWrapper = styled.section`
-  padding-top: var(--space-md);
+  padding-top: var(--space-xl);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-md);
+
+  @media (max-width: 640px) {
+    padding-top: var(--space-md);
+  }
 `;
 
 const LogoImageWrapper = styled.div`
@@ -39,7 +43,9 @@ function HeroSection() {
         <h1>No Era Penal</h1>
         <p>
           A pair of handsome, smart, funny looking guys dedicated to Futbol and
-          Futbol only.
+          Futbol only. We have just started a podcast, which can be found on
+          Spotify, and Apple Podcasts, along with a blog where we will be
+          writing about everything Futbol.
         </p>
       </HeroInfoWrapper>
     </SectionWrapper>
