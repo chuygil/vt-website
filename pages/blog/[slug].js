@@ -1,23 +1,59 @@
 import BlockContent from '@sanity/block-content-to-react';
+import styled from 'styled-components';
 import Layout from '@components/layout';
+import { Calendar } from '@components/icons';
+
+const PostWrapper = styled.article`
+  > h1 {
+    margin-bottom: var(--space-sm);
+  }
+
+  > p {
+    display: flex;
+    align-items: center;
+  }
+
+  > p span {
+    margin-left: var(--space-sm);
+  }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  padding: var(--space-md) 0;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: '';
+    background-color: var(--color-fg);
+    width: 10%;
+    height: 3px;
+    top: 0;
+    left: 0;
+  }
+`;
 
 function Post({ title, body, publishedAt }) {
   return (
     <Layout title={title}>
-      <article>
+      <PostWrapper>
         <h1>{title}</h1>
-        <span>{publishedAt}</span>
+        <p>
+          <Calendar />
+          <span>{publishedAt}</span>
+        </p>
+        <Divider />
         <div>
           <BlockContent blocks={body} />
         </div>
-      </article>
+      </PostWrapper>
     </Layout>
   );
 }
 
 export async function getServerSideProps(context) {
   let pageSlug = context.query.slug;
-  console.log(pageSlug);
 
   if (!pageSlug) {
     return {
@@ -28,7 +64,7 @@ export async function getServerSideProps(context) {
   let query = encodeURIComponent(
     `*[ _type == "post" && slug.current == "${pageSlug}" ]`
   );
-  let url = `https://vlmt4x3o.api.sanity.io/v1/data/query/production?query=${query}`;
+  let url = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
 
   let result = await fetch(url).then(res => res.json());
   let post = result.result[0];

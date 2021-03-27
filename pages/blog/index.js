@@ -1,31 +1,51 @@
 import Link from 'next/link';
+import styled from 'styled-components';
 import Layout from '@components/layout';
 
+const PostList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+    font-size: var(--font-md);
+    font-weight: var(--font-semibold);
+    color: var(--color-gray-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  > li span {
+    font-size: var(--font-base);
+    color: var(--color-fg);
+  }
+`;
+
 function Blog({ posts }) {
-  console.log(posts);
   return (
     <Layout title="Blog">
       <h1>Blog</h1>
       <div>
-        {posts.length ? (
-          posts.map(post => (
-            <div key={post._id}>
-              <Link href={`/blog/${post.slug.current}`}>
-                <a>{post.title}</a>
-              </Link>
-            </div>
-          ))
-        ) : (
-          <span>No Posts Yet!</span>
-        )}
+        <PostList>
+          {posts.length ? (
+            posts.map(post => (
+              <li key={post._id}>
+                <span>{post.publishedAt} - </span>
+                <Link href={`/blog/${post.slug.current}`}>
+                  <a>{post.title}</a>
+                </Link>
+              </li>
+            ))
+          ) : (
+            <span>No Posts Yet!</span>
+          )}
+        </PostList>
       </div>
     </Layout>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   let query = encodeURIComponent(`*[ _type == "post" ]`);
-  let url = `https://vlmt4x3o.api.sanity.io/v1/data/query/production?query=${query}`;
+  let url = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
   let result = await fetch(url).then(res => res.json());
 
   if (!result.result || !result.result.length) {
