@@ -70,6 +70,16 @@ function Footer() {
         </li>
         <li>
           <ExternalLinkWrapper
+            href="https://twitter.com/noerapenal1219"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Twitter</span>
+            <ExternalLink />
+          </ExternalLinkWrapper>
+        </li>
+        <li>
+          <ExternalLinkWrapper
             href="https://open.spotify.com/show/738ARhlH2fyOGKT26X9ukl?si=2ZjWvaYlRxCkinyuH6UYMw"
             target="_blank"
             rel="noopener noreferrer"
