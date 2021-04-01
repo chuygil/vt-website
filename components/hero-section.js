@@ -2,7 +2,6 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 const SectionWrapper = styled.section`
-  padding-top: var(--space-xl);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--space-md);

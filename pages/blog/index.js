@@ -22,23 +22,25 @@ const PostList = styled.ul`
 function Blog({ posts }) {
   return (
     <Layout title="Blog">
-      <h1>Blog</h1>
-      <div>
-        <PostList>
-          {posts.length ? (
-            posts.map(post => (
-              <li key={post._id}>
-                <span>{post.publishedAt} - </span>
-                <Link href={`/blog/${post.slug.current}`}>
-                  <a>{post.title}</a>
-                </Link>
-              </li>
-            ))
-          ) : (
-            <span>No Posts Yet!</span>
-          )}
-        </PostList>
-      </div>
+      <section>
+        <h1>Blog</h1>
+        <div>
+          <PostList>
+            {posts.length ? (
+              posts.map(post => (
+                <li key={post._id}>
+                  <span>{post.publishedAt} - </span>
+                  <Link href={`/blog/${post.slug.current}`}>
+                    <a>{post.title}</a>
+                  </Link>
+                </li>
+              ))
+            ) : (
+              <span>No Posts Yet!</span>
+            )}
+          </PostList>
+        </div>
+      </section>
     </Layout>
   );
 }
