@@ -20,6 +20,7 @@ const PostList = styled.ul`
 `;
 
 function Blog({ posts }) {
+  console.log(posts);
   return (
     <Layout title="Blog">
       <section>

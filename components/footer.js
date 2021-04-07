@@ -23,10 +23,6 @@ const FooterWrapper = styled.footer`
     }
   }
 
-  > p {
-    margin-bottom: 0;
-  }
-
   > ul {
     list-style: none;
     padding-left: 0;

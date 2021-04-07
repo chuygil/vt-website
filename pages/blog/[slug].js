@@ -8,13 +8,9 @@ const PostWrapper = styled.article`
     margin-bottom: var(--space-sm);
   }
 
-  > p {
+  > div p {
     display: flex;
     align-items: center;
-  }
-
-  > p span {
-    margin-left: var(--space-sm);
   }
 `;
 
@@ -34,15 +30,18 @@ const Divider = styled.div`
   }
 `;
 
-function Post({ title, body, publishedAt }) {
+function Post({ title, body, publishedAt, author }) {
   return (
     <Layout title={title}>
       <PostWrapper>
         <h1>{title}</h1>
-        <p>
-          <Calendar />
-          <span>{publishedAt}</span>
-        </p>
+        <div>
+          <p>
+            <Calendar />
+            <span style={{ marginLeft: 'var(--space-sm)' }}>{publishedAt}</span>
+          </p>
+          <p>By: {author}</p>
+        </div>
         <Divider />
         <div>
           <BlockContent blocks={body} />
@@ -79,6 +78,7 @@ export async function getServerSideProps(context) {
         title: post.title,
         body: post.body,
         publishedAt: post.publishedAt,
+        author: post.author.name,
       },
     };
   }
