@@ -34,7 +34,7 @@ const Divider = styled.div`
   }
 `;
 
-function Post({ title, body, publishedAt }) {
+function Post({ title, body, publishedAt, author }) {
   return (
     <Layout title={title}>
       <PostWrapper>
@@ -42,6 +42,7 @@ function Post({ title, body, publishedAt }) {
         <p>
           <Calendar />
           <span>{publishedAt}</span>
+          <span>{author}</span>
         </p>
         <Divider />
         <div>
@@ -79,6 +80,7 @@ export async function getServerSideProps(context) {
         title: post.title,
         body: post.body,
         publishedAt: post.publishedAt,
+        author: post.author,
       },
     };
   }
