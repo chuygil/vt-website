@@ -15,14 +15,16 @@ function Podcast({ result }) {
       <section>
         <h1>Podcast</h1>
         <VideoListWrapper>
-          {result.items.slice(0, -1).map(item => (
-            <Fragment key={item.id.videoId}>
-              <PodcastVideoCard
-                videoTitle={item.snippet.title}
-                videoId={item.id.videoId}
-              />
-            </Fragment>
-          ))}
+          {result.items
+            .filter(item => item.id.kind !== 'youtube#channel')
+            .map(item => (
+              <Fragment key={item.id.videoId}>
+                <PodcastVideoCard
+                  videoTitle={item.snippet.title}
+                  videoId={item.id.videoId}
+                />
+              </Fragment>
+            ))}
         </VideoListWrapper>
       </section>
     </Layout>
@@ -31,7 +33,7 @@ function Podcast({ result }) {
 
 export async function getStaticProps() {
   let result = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=UCueiUwSd3Y62Gbn5XpR-ikA&maxResults=25&key=${process.env.NEXT_PUBLIC_YOUTUBE_API}`
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCueiUwSd3Y62Gbn5XpR-ikA&key=${process.env.NEXT_PUBLIC_YOUTUBE_API}`
   ).then(res => res.json());
 
   if (!result) {
