@@ -16,15 +16,17 @@ function Podcast({ result }) {
         <h1>Podcast</h1>
         <VideoListWrapper>
           {result.items
-            .filter(item => item.id.kind !== 'youtube#channel')
-            .map(item => (
-              <Fragment key={item.id.videoId}>
-                <PodcastVideoCard
-                  videoTitle={item.snippet.title}
-                  videoId={item.id.videoId}
-                />
-              </Fragment>
-            ))}
+            ? result.items
+                .filter(item => item.id.kind !== 'youtube#channel')
+                .map(item => (
+                  <Fragment key={item.id.videoId}>
+                    <PodcastVideoCard
+                      videoTitle={item.snippet.title}
+                      videoId={item.id.videoId}
+                    />
+                  </Fragment>
+                ))
+            : null}
         </VideoListWrapper>
       </section>
     </Layout>
