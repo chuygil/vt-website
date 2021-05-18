@@ -1,12 +1,17 @@
-import { Fragment } from 'react';
 import styled from 'styled-components';
 import Layout from '@components/layout';
 import PodcastVideoCard from '@components/podcast-video-card';
 
-const VideoListWrapper = styled.section`
+const ListWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr)
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-rows: auto;
   gap: var(--space-md);
+  place-items: center;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 function Podcast({ result }) {
@@ -14,20 +19,19 @@ function Podcast({ result }) {
     <Layout title="Podcast">
       <section>
         <h1>Podcast</h1>
-        <VideoListWrapper>
+        <ListWrapper>
           {result.items
             ? result.items
                 .filter(item => item.id.kind !== 'youtube#channel')
                 .map(item => (
-                  <Fragment key={item.id.videoId}>
-                    <PodcastVideoCard
-                      videoTitle={item.snippet.title}
-                      videoId={item.id.videoId}
-                    />
-                  </Fragment>
+                  <PodcastVideoCard
+                    key={item.id.videoId}
+                    videoTitle={item.snippet.title}
+                    videoId={item.id.videoId}
+                  />
                 ))
             : null}
-        </VideoListWrapper>
+        </ListWrapper>
       </section>
     </Layout>
   );
