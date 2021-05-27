@@ -97,6 +97,11 @@ function MobileDialog() {
               <MobileLinkWrapper>Podcast</MobileLinkWrapper>
             </Link>
           </motion.li>
+          <motion.li variants={item}>
+            <Link href="/contact" passHref>
+              <MobileLinkWrapper>Contact</MobileLinkWrapper>
+            </Link>
+          </motion.li>
         </MobileNavList>
       </nav>
     </DialogWrapper>

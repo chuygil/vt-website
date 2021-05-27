@@ -82,6 +82,11 @@ function Header() {
               <a>Podcast</a>
             </Link>
           </li>
+          <li>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
+          </li>
         </NavList>
       </NavWrapper>
 

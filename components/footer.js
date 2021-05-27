@@ -23,6 +23,10 @@ const FooterWrapper = styled.footer`
     }
   }
 
+  > p {
+    white-space: nowrap;
+  }
+
   > ul {
     list-style: none;
     padding-left: 0;
@@ -47,6 +51,7 @@ const FooterWrapper = styled.footer`
 const ExternalLinkWrapper = styled.a`
   display: flex;
   align-items: center;
+  white-space: nowrap;
 `;
 
 function Footer() {
@@ -91,6 +96,16 @@ function Footer() {
             rel="noopener noreferrer"
           >
             <span>Apple Podcasts</span>
+            <ExternalLink />
+          </ExternalLinkWrapper>
+        </li>
+        <li>
+          <ExternalLinkWrapper
+            href="https://www.youtube.com/channel/UCueiUwSd3Y62Gbn5XpR-ikA"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Youtube</span>
             <ExternalLink />
           </ExternalLinkWrapper>
         </li>
