@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Layout from '@components/layout';
 import PodcastVideoCard from '@components/podcast-video-card';
+import { PrimaryButton } from '@components/custom-buttons';
 
 const ListWrapper = styled.section`
   display: grid;
@@ -14,11 +15,39 @@ const ListWrapper = styled.section`
   }
 `;
 
+const LinkListWrapper = styled.ul`
+  list-style: none;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: var(--space-md);
+  }
+`;
+
 function Podcast({ result }) {
   return (
     <Layout title="Podcast">
       <section>
         <h1>Podcast</h1>
+        <div>
+          <LinkListWrapper>
+            <li>
+              <PrimaryButton href="https://open.spotify.com/show/738ARhlH2fyOGKT26X9ukl?si=2ZjWvaYlRxCkinyuH6UYMw">
+                Spotify
+              </PrimaryButton>
+            </li>
+            <li>
+              <PrimaryButton href="https://podcasts.apple.com/us/podcast/no-era-penal/id1559433275">
+                Apple Podcasts
+              </PrimaryButton>
+            </li>
+            <li>
+              <PrimaryButton href="https://www.youtube.com/channel/UCueiUwSd3Y62Gbn5XpR-ikA">
+                Youtube
+              </PrimaryButton>
+            </li>
+          </LinkListWrapper>
+        </div>
         <ListWrapper>
           {result.items
             ? result.items

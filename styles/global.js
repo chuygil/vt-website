@@ -42,6 +42,7 @@ const GlobalStyles = createGlobalStyle`
 
       /* Radius variants */
       --radius-sm: 3px;
+      --radius-md: 5px;
     }
 
     [data-theme='dark'] {
