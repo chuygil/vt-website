@@ -39,7 +39,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <script
-            data-goatcounter="https://vtwebsite.goatcounter.com/count"
+            data-goatcounter="https://noera-penal.goatcounter.com/count"
             async
             src="//gc.zgo.at/count.js"
           ></script>
