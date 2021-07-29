@@ -38,6 +38,11 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <script
+            data-goatcounter="https://vtwebsite.goatcounter.com/count"
+            async
+            src="//gc.zgo.at/count.js"
+          ></script>
         </Head>
         <body>
           <Main />
