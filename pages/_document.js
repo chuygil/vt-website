@@ -39,10 +39,21 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <script
-            data-goatcounter="https://MYCODE.goatcounter.com/count"
             async
-            src="//gc.zgo.at/count.js"
-          ></script>
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />

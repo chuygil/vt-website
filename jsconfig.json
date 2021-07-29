@@ -5,7 +5,8 @@
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
-      "@context/*": ["context/*"]
+      "@context/*": ["context/*"],
+      "@lib/*": ["lib/*"]
     }
   },
   "exclude": ["node_modules"]
