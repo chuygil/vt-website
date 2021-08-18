@@ -47,7 +47,7 @@ const GlobalStyles = createGlobalStyle`
 
     [data-theme='dark'] {
       /* Dark theme colors */
-      --color-bg: #292929;
+      --color-bg: #221f1b;
       --color-fg: #ffffff;
       --color-outline: #3a97e4;
       --color-gray-primary: #c2c2c2;
