@@ -46,7 +46,9 @@ function Blog({ posts }) {
 }
 
 export async function getServerSideProps() {
-  let query = encodeURIComponent(`*[ _type == "post" ]`);
+  let query = encodeURIComponent(
+    `*[ _type == "post" ] | order(publishedAt desc)`
+  );
   let url = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v1/data/query/production?query=${query}`;
   let result = await fetch(url).then(res => res.json());
 
