@@ -30,7 +30,7 @@ function HeroSection() {
     <SectionWrapper>
       <LogoImageWrapper>
         <Image
-          src="/images/logo.jpeg"
+          src="/images/wannabepundits.png"
           alt="No Era Penal Logo"
           width={300}
           height={300}
@@ -38,7 +38,7 @@ function HeroSection() {
         />
       </LogoImageWrapper>
       <HeroInfoWrapper>
-        <h1>No Era Penal</h1>
+        <h1>Wannabe Pundits</h1>
         <p>
           A pair of handsome, smart, funny looking guys dedicated to Futbol and
           Futbol only. We have just started a podcast, which can be found on

@@ -57,7 +57,7 @@ const ExternalLinkWrapper = styled.a`
 function Footer() {
   return (
     <FooterWrapper>
-      <p>© 2021 No Era Penal</p>
+      <p>© 2022 Wannabe Pundits</p>
       <ul>
         <li>
           <ExternalLinkWrapper
